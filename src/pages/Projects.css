@@ -1,0 +1,725 @@
+/* =========================================
+   PROJECTS PAGE CSS
+   CYBER SECURITY PORTFOLIO THEME
+========================================= */
+
+
+.projects-page {
+
+    min-height: 100vh;
+
+    padding: 100px 8%;
+
+    background:
+    radial-gradient(
+        circle at top,
+        rgba(0,255,255,0.15),
+        transparent 40%
+    ),
+    linear-gradient(
+        135deg,
+        #020617,
+        #000000
+    );
+
+    color:white;
+
+    font-family:"Poppins",sans-serif;
+
+    overflow:hidden;
+
+}
+
+
+
+
+/* =========================
+   HERO SECTION
+========================= */
+
+
+.projects-hero {
+
+    text-align:center;
+
+    margin-bottom:90px;
+
+}
+
+
+
+.projects-hero h1 {
+
+    font-size:65px;
+
+    font-weight:800;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.projects-hero h1 span {
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #00ffff,
+        #38bdf8,
+        #a855f7
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+
+
+.projects-hero p {
+
+    max-width:800px;
+
+    margin:auto;
+
+    color:#94a3b8;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+/* =========================
+   PROJECT GRID
+========================= */
+
+
+.projects-grid {
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:35px;
+
+}
+
+
+
+
+
+
+/* =========================
+   PROJECT CARD
+========================= */
+
+
+.project-card {
+
+    position:relative;
+
+    padding:35px;
+
+    border-radius:25px;
+
+
+    background:
+
+    rgba(15,23,42,0.75);
+
+
+    border:
+
+    1px solid rgba(0,255,255,0.2);
+
+
+    backdrop-filter:blur(20px);
+
+
+    transition:0.5s;
+
+
+    overflow:hidden;
+
+}
+
+
+
+.project-card::before {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:250px;
+
+
+    height:250px;
+
+
+    top:-120px;
+
+
+    right:-120px;
+
+
+    background:
+
+    radial-gradient(
+
+        circle,
+
+        rgba(0,255,255,0.35),
+
+        transparent
+
+    );
+
+
+    opacity:0;
+
+
+    transition:0.5s;
+
+
+}
+
+
+
+
+.project-card:hover::before {
+
+
+    opacity:1;
+
+
+}
+
+
+
+
+
+.project-card:hover {
+
+
+    transform:
+
+    translateY(-15px);
+
+
+    border-color:#00ffff;
+
+
+    box-shadow:
+
+
+    0 0 40px rgba(0,255,255,0.3);
+
+
+}
+
+
+
+
+
+/* =========================
+   ICON
+========================= */
+
+
+.project-icon {
+
+
+    font-size:50px;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+
+
+/* =========================
+   HEADER
+========================= */
+
+
+.project-header {
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    gap:15px;
+
+
+}
+
+
+
+.project-header h2 {
+
+
+    font-size:24px;
+
+
+    color:#00ffff;
+
+
+}
+
+
+
+.project-header span {
+
+
+    color:#38bdf8;
+
+
+    font-size:13px;
+
+
+    padding:7px 14px;
+
+
+    border-radius:20px;
+
+
+    background:
+
+    rgba(56,189,248,0.1);
+
+
+}
+
+
+
+
+
+
+/* =========================
+   CATEGORY TAG
+========================= */
+
+
+.category {
+
+
+    display:inline-block;
+
+
+    margin:20px 0;
+
+
+    padding:8px 18px;
+
+
+    border-radius:30px;
+
+
+    color:#00ffff;
+
+
+    font-size:13px;
+
+
+    background:
+
+    rgba(0,255,255,0.1);
+
+
+    border:
+
+    1px solid rgba(0,255,255,0.2);
+
+
+}
+
+
+
+
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+
+.project-description {
+
+
+    color:#cbd5e1;
+
+
+    line-height:1.8;
+
+
+    font-size:15px;
+
+
+}
+
+
+
+
+
+
+/* =========================
+   FEATURES
+========================= */
+
+
+.project-card h3 {
+
+
+    margin-top:25px;
+
+
+    margin-bottom:15px;
+
+
+    color:white;
+
+
+    font-size:18px;
+
+
+}
+
+
+
+.project-card ul {
+
+
+    padding-left:20px;
+
+
+}
+
+
+
+.project-card li {
+
+
+    color:#94a3b8;
+
+
+    margin-bottom:12px;
+
+
+    line-height:1.6;
+
+
+}
+
+
+
+
+
+
+/* =========================
+   TECHNOLOGY STACK
+========================= */
+
+
+.tech-stack {
+
+
+    display:flex;
+
+
+    flex-wrap:wrap;
+
+
+    gap:10px;
+
+
+    margin-top:25px;
+
+
+}
+
+
+
+.tech-stack span {
+
+
+    padding:8px 15px;
+
+
+    border-radius:20px;
+
+
+    background:
+
+
+    rgba(168,85,247,0.15);
+
+
+    border:
+
+    1px solid rgba(168,85,247,0.3);
+
+
+    color:#c084fc;
+
+
+    font-size:13px;
+
+
+}
+
+
+
+
+
+
+/* =========================
+   BUTTON
+========================= */
+
+
+.view-btn {
+
+
+    margin-top:30px;
+
+
+    padding:12px 30px;
+
+
+    border-radius:30px;
+
+
+    border:none;
+
+
+    cursor:pointer;
+
+
+    font-weight:700;
+
+
+    background:
+
+
+    linear-gradient(
+
+        90deg,
+
+        #00ffff,
+
+        #2563eb
+
+    );
+
+
+    color:#020617;
+
+
+    transition:0.4s;
+
+
+}
+
+
+
+.view-btn:hover {
+
+
+    transform:
+
+    translateY(-5px);
+
+
+    box-shadow:
+
+
+    0 0 30px rgba(0,255,255,0.8);
+
+
+}
+
+
+
+
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+
+.project-card {
+
+
+    animation:
+
+    projectFade 0.8s ease forwards;
+
+
+}
+
+
+
+@keyframes projectFade {
+
+
+    from {
+
+
+        opacity:0;
+
+
+        transform:
+
+        translateY(50px);
+
+
+    }
+
+
+    to {
+
+
+        opacity:1;
+
+
+        transform:
+
+        translateY(0);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+
+@media(max-width:1200px){
+
+
+    .projects-grid {
+
+
+        grid-template-columns:
+
+        repeat(2,1fr);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+@media(max-width:768px){
+
+
+
+    .projects-page {
+
+
+        padding:70px 5%;
+
+
+    }
+
+
+
+    .projects-hero h1 {
+
+
+        font-size:40px;
+
+
+    }
+
+
+
+
+    .projects-hero p {
+
+
+        font-size:15px;
+
+
+    }
+
+
+
+
+
+    .projects-grid {
+
+
+        grid-template-columns:1fr;
+
+
+    }
+
+
+
+
+
+    .project-header {
+
+
+        flex-direction:column;
+
+
+        align-items:flex-start;
+
+
+    }
+
+
+
+
+
+    .project-card {
+
+
+        padding:25px;
+
+
+    }
+
+
+
+}
