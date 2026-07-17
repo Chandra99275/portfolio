@@ -6,35 +6,29 @@ import CyberSecurity from "./pages/CyberSecurity";
 import Projects from "./pages/Projects";
 
 
-function App(){
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
 
-return(
+      <Route
+        path="/web-development"
+        element={<WebDevelopment />}
+      />
 
-<Routes>
+      <Route
+        path="/cyber-security"
+        element={<CyberSecurity />}
+      />
 
-<Route path="/" element={<Home/>}/>
+      <Route
+        path="/projects"
+        element={<Projects />}
+      />
 
-<Route
-path="/web-development"
-element={<WebDevelopment/>}
-/>
-
-<Route
-path="/cyber-security"
-element={<CyberSecurity/>}
-/>
-
-
-<Route
-path="/projects"
-element={<Projects/>}
-/>
-
-
-</Routes>
-
-)
-
+      
+    </Routes>
+  );
 }
 
 export default App;

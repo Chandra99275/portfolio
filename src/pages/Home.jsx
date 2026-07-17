@@ -11,6 +11,8 @@ import {
   FaPython,
   FaLinux,
   FaShieldAlt,
+    FaEnvelope,
+
 } from "react-icons/fa";
 
 import {
@@ -21,6 +23,7 @@ import {
   SiDocker,
   SiGit,
 } from "react-icons/si";
+
 
 function Home() {
 
@@ -164,20 +167,54 @@ function Home() {
         <FaArrowRight />
       </Link>
 
-      <button className="secondary-btn">
-        Download Resume
-      </button>
-
+    
     </div>
 
     <div className="social-icons">
 
-      <a href="#"><FaGithub /></a>
-      <a href="#"><FaLinkedin /></a>
-      <a href="#"><FaInstagram /></a>
+  {/* GitHub */}
+  <a
+    href="https://github.com/Chandra99275"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="GitHub"
+    title="GitHub"
+  >
+    <FaGithub />
+  </a>
 
-    </div>
+  {/* LinkedIn */}
+  <a
+    href="https://www.linkedin.com/in/chandramaheshgoud-yarlagadda-25393b368/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="LinkedIn"
+    title="LinkedIn"
+  >
+    <FaLinkedin />
+  </a>
 
+  {/* Instagram */}
+  <a
+    href="https://www.instagram.com/__chandramahesh.__/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+    title="Instagram"
+  >
+    <FaInstagram />
+  </a>
+
+  {/* Email */}
+  <a
+    href="mailto:chandramahesh9193@gmail.com"
+    aria-label="Email"
+    title="Email"
+  >
+    <FaEnvelope />
+  </a>
+
+</div>
   </div>
 
   {/* BOTTOM SECTION (Right content comes below) */}
@@ -404,7 +441,7 @@ function Home() {
 
         <h2>
 
-          Mahesh.
+          Chandra Mahesh.
 
         </h2>
 
@@ -417,19 +454,45 @@ function Home() {
 
         <div className="footer-icons">
 
-          <a href="#">
-            <FaGithub />
-          </a>
+  <a
+    href="https://github.com/Chandra99275"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="GitHub"
+    title="GitHub"
+  >
+    <FaGithub />
+  </a>
 
-          <a href="#">
-            <FaLinkedin />
-          </a>
+  <a
+    href="https://www.linkedin.com/in/chandramaheshgoud-yarlagadda-25393b368/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="LinkedIn"
+    title="LinkedIn"
+  >
+    <FaLinkedin />
+  </a>
 
-          <a href="#">
-            <FaInstagram />
-          </a>
+  <a
+    href="https://www.instagram.com/__chandramahesh.__/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+    title="Instagram"
+  >
+    <FaInstagram />
+  </a>
 
-        </div>
+  <a
+    href="mailto:chandramahesh9193@gmail.com"
+    aria-label="Email"
+    title="Email"
+  >
+    <FaEnvelope />
+  </a>
+
+</div>
 
         <p className="copyright">
 
