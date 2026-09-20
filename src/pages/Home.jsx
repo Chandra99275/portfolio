@@ -1,18 +1,17 @@
 import "./Home.css";
 import { Link } from "react-router-dom";
-
 import {
   FaGithub,
   FaLinkedin,
   FaInstagram,
+  FaEnvelope,
   FaArrowRight,
   FaReact,
   FaNodeJs,
-  FaPython,
-  FaLinux,
   FaShieldAlt,
-    FaEnvelope,
-
+  FaTerminal,
+  FaCode,
+  FaLock,
 } from "react-icons/fa";
 
 import {
@@ -22,487 +21,204 @@ import {
   SiMysql,
   SiDocker,
   SiGit,
+  SiKalilinux,
+  SiPython,
 } from "react-icons/si";
 
-
 function Home() {
-
   const webSkills = [
-    {
-      name: "React",
-      icon: <FaReact />,
-    },
-    {
-      name: "Node.js",
-      icon: <FaNodeJs />,
-    },
-    {
-      name: "Express",
-      icon: <SiExpress />,
-    },
-    {
-      name: "MongoDB",
-      icon: <SiMongodb />,
-    },
-    {
-      name: "MySQL",
-      icon: <SiMysql />,
-    },
-    {
-      name: "JavaScript",
-      icon: <SiJavascript />,
-    },
+    { name: "React", icon: <FaReact /> },
+    { name: "Node.js", icon: <FaNodeJs /> },
+    { name: "Express", icon: <SiExpress /> },
+    { name: "MongoDB", icon: <SiMongodb /> },
+    { name: "MySQL", icon: <SiMysql /> },
+    { name: "JavaScript", icon: <SiJavascript /> },
   ];
 
   const cyberSkills = [
-    "Kali Linux",
-    "Nmap",
-    "Burp Suite",
-    "Metasploit",
-    "Wireshark",
-    "OWASP",
-    "Linux",
-    "Python",
-    "Docker",
-    "Git",
+    { name: "Kali Linux", icon: <SiKalilinux /> },
+    { name: "Python", icon: <SiPython /> },
+    { name: "Docker", icon: <SiDocker /> },
+    { name: "Git", icon: <SiGit /> },
+    { name: "Nmap", icon: <FaTerminal /> },
+    { name: "Burp Suite", icon: <FaShieldAlt /> },
   ];
 
   return (
-    <div className="home">
+    <div className="premium-portfolio">
+      {/* Dynamic Background Mesh Light Effects */}
+      <div className="ambient-glow glow-violet"></div>
+      <div className="ambient-glow glow-steel"></div>
 
-      {/* Background */}
+      {/* Floating Header */}
+      <header className="header-wrapper">
+        <nav className="glass-nav">
+          <div className="logo">
+            Chandra Mahesh<span className="dot">.</span>
+          </div>
+          <div className="nav-links">
+            <a href="/" className="active">Home</a>
+            <Link to="/web-development">Web Dev</Link>
+            <Link to="/cyber-security">Cyber Security</Link>
+            <Link to="/projects">Projects</Link>
+          </div>
+          <a href="#contact" className="contact-btn">Let's Connect</a>
+        </nav>
+      </header>
 
-      <div className="background">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      {/* Navbar */}
-
-      <nav className="navbar">
-
-        <div className="logo">
-          Mahesh<span>.</span>
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div className="hero-status">
+          <span className="pulse"></span> Available for Select Opportunities
         </div>
 
-        <ul className="nav-links">
+        <h1 className="hero-heading">
+          Full-Stack Architect <br />
+          <span className="gradient-text">& Cyber Security Analyst</span>
+        </h1>
 
-          <li>
-            <a href="/">Home</a>
-          </li>
+        <p className="hero-subline">
+          I craft robust digital experiences and secure modern web ecosystems with precision, performance, and defense-in-depth principles.
+        </p>
 
-          <li>
-            <Link to="/web-development" className="hero-btn">
-  Explore Web Development
-</Link>
-          </li>
+        <div className="hero-actions">
+          <Link to="/projects" className="action-btn primary">
+            Explore Work <FaArrowRight />
+          </Link>
+          <a href="mailto:chandramahesh9193@gmail.com" className="action-btn secondary">
+            Get in Touch
+          </a>
+        </div>
 
-          <li>
-            <Link to="/cyber-security" className="hero-btn">
-  Explore Cyber Security
-</Link>
-          </li>
+        {/* Social Icons Strip */}
+        <div className="social-strip">
+          <a href="https://github.com/Chandra99275" target="_blank" rel="noreferrer" title="GitHub">
+            <FaGithub />
+          </a>
+          <a href="https://www.linkedin.com/in/chandramaheshgoud-yarlagadda-25393b368/" target="_blank" rel="noreferrer" title="LinkedIn">
+            <FaLinkedin />
+          </a>
+          <a href="https://www.instagram.com/__chandramahesh.__/" target="_blank" rel="noreferrer" title="Instagram">
+            <FaInstagram />
+          </a>
+          <a href="mailto:chandramahesh9193@gmail.com" title="Email">
+            <FaEnvelope />
+          </a>
+        </div>
+      </section>
 
-          <li>
-            <Link to="/projects">
-  Projects
-</Link>
-          </li>
+      {/* Main Content Area */}
+      <main className="main-content">
+        
+        {/* Full Spectrum Bento Tools & Capabilities Section */}
+        <section className="content-block wide-spectrum">
+          <div className="block-header text-center">
+            <span className="tag">TECHNICAL SPECTRUM</span>
+            <h2>Tools & Capabilities</h2>
+            <p className="section-subtext">
+              A comprehensive breakdown of technologies I leverage for full-stack engineering and security operations.
+            </p>
+          </div>
 
-          <li>
-            <a href="#contact">
-              Contact
-            </a>
-          </li>
-
-        </ul>
-
-      </nav>
-
-      {/* Hero */}
-
-    <section className="hero">
-
-  {/* TOP SECTION (Left content comes first) */}
-  <div className="hero-left">
-
-    <p className="hello">
-      👋 Hello, I'm
-    </p>
-
-    <h1 className="hero-title small-text">
-
-      Chandramahesh
-
-      <span className="small-text">
-        Full Stack Developer
-      </span>
-
-      <span className="and small-text">
-        &
-      </span>
-
-      <span className="small-text">
-        Cyber Security Analyst
-      </span>
-
-    </h1>
-
-    <p className="hero-text small-text">
-
-      Passionate Full Stack Developer and Cyber Security Analyst
-      building secure, scalable web applications while performing
-      penetration testing, vulnerability assessment and ethical
-      hacking using modern security tools.
-
-    </p>
-
-    <div className="hero-buttons">
-
-      <Link className="primary-btn" to="/projects">
-        View Projects
-        <FaArrowRight />
-      </Link>
-
-    
-    </div>
-
-    <div className="social-icons">
-
-  {/* GitHub */}
-  <a
-    href="https://github.com/Chandra99275"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="GitHub"
-    title="GitHub"
-  >
-    <FaGithub />
-  </a>
-
-  {/* LinkedIn */}
-  <a
-    href="https://www.linkedin.com/in/chandramaheshgoud-yarlagadda-25393b368/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="LinkedIn"
-    title="LinkedIn"
-  >
-    <FaLinkedin />
-  </a>
-
-  {/* Instagram */}
-  <a
-    href="https://www.instagram.com/__chandramahesh.__/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Instagram"
-    title="Instagram"
-  >
-    <FaInstagram />
-  </a>
-
-  {/* Email */}
-  <a
-    href="mailto:chandramahesh9193@gmail.com"
-    aria-label="Email"
-    title="Email"
-  >
-    <FaEnvelope />
-  </a>
-
-</div>
-  </div>
-
-  {/* BOTTOM SECTION (Right content comes below) */}
-  <div className="hero-right">
-
-    <div className="glass-card">
-
-      <div className="card-title">
-        <FaShieldAlt />
-        <h2>Skills & Technologies</h2>
-      </div>
-
-      <div className="web-box">
-
-        <h3 id="web">Web Development</h3>
-
-        <div className="web-grid">
-
-          {webSkills.map((item, index) => (
-            <div className="web-card" key={index}>
-              <div className="icon">{item.icon}</div>
-              <p>{item.name}</p>
+          <div className="spectrum-bento-grid">
+            {/* Full Stack Bento Card */}
+            <div className="bento-card fullstack-card">
+              <div className="card-top">
+                <div className="icon-box violet"><FaCode /></div>
+                <div className="card-heading-group">
+                  <h3>Full-Stack Development</h3>
+                  <span className="badge-tech">Engineering</span>
+                </div>
+              </div>
+              
+              <p className="panel-desc">
+                Architecting scalable web applications with high-performance APIs, responsive client-side interfaces, and relational/NoSQL data persistence.
+              </p>
+              
+              <div className="skill-tags">
+                {webSkills.map((skill, index) => (
+                  <div className="skill-chip violet-glow-hover" key={index}>
+                    <span className="chip-icon violet">{skill.icon}</span>
+                    <span className="chip-label">{skill.name}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
 
-        </div>
-      </div>
+            {/* Cyber Security Bento Card */}
+            <div className="bento-card cyber-card">
+              <div className="card-top">
+                <div className="icon-box steel"><FaShieldAlt /></div>
+                <div className="card-heading-group">
+                  <h3>Cyber Security & Testing</h3>
+                  <span className="badge-sec">SecOps</span>
+                </div>
+              </div>
 
-      <div className="cyber-box">
+              <p className="panel-desc">
+                Auditing web applications for OWASP Top 10 vulnerabilities, conducting threat assessments, and hardening microservice infrastructure.
+              </p>
 
-        <h3 id="cyber">Cyber Security</h3>
-
-        <div className="cyber-grid">
-
-          {cyberSkills.map((item, index) => (
-            <div className="cyber-card" key={index}>
-              <FaLinux />
-              <span>{item}</span>
+              <div className="skill-tags">
+                {cyberSkills.map((skill, index) => (
+                  <div className="skill-chip steel-glow-hover" key={index}>
+                    <span className="chip-icon steel">{skill.icon}</span>
+                    <span className="chip-label">{skill.name}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
+          </div>
+        </section>
 
+        {/* Focus Areas Grid */}
+        <section className="content-block wide-spectrum">
+          <div className="block-header text-center">
+            <span className="tag">SPECIALIZATION</span>
+            <h2>Core Practice Areas</h2>
+          </div>
+
+          <div className="focus-grid">
+            <div className="glass-card">
+              <div className="card-icon"><FaReact /></div>
+              <h4>Frontend Systems</h4>
+              <p>Responsive, lightning-fast UIs engineered using React, component systems, and modern styling.</p>
+            </div>
+
+            <div className="glass-card">
+              <div className="card-icon"><FaNodeJs /></div>
+              <h4>Backend Engineering</h4>
+              <p>Scalable REST microservices, database schema engineering, and hardened authorization setups.</p>
+            </div>
+
+            <div className="glass-card">
+              <div className="card-icon"><FaLock /></div>
+              <h4>Security Testing</h4>
+              <p>Proactive security audits, vulnerability exploitation assessments, and application hardening.</p>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      {/* Footer */}
+      <footer className="footer-section" id="contact">
+        <div className="footer-inner">
+          <div className="footer-brand">
+            <h3>Chandra Mahesh<span className="dot">.</span></h3>
+            <p>Full Stack Developer & Security Analyst</p>
+          </div>
+          <div className="footer-socials">
+            <a href="https://github.com/Chandra99275" target="_blank" rel="noreferrer"><FaGithub /></a>
+            <a href="https://www.linkedin.com/in/chandramaheshgoud-yarlagadda-25393b368/" target="_blank" rel="noreferrer"><FaLinkedin /></a>
+            <a href="https://www.instagram.com/__chandramahesh.__/" target="_blank" rel="noreferrer"><FaInstagram /></a>
+            <a href="mailto:chandramahesh9193@gmail.com"><FaEnvelope /></a>
+          </div>
         </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-            {/* ==========================
-          Featured Skills
-      ========================== */}
-
-      <section className="featured-skills">
-
-        <h2>What I Do</h2>
-
-        <div className="feature-grid">
-
-          <div className="feature-card">
-
-            <FaReact className="feature-icon" />
-
-            <h3>Frontend Development</h3>
-
-            <p>
-              Building responsive and interactive web applications
-              using React, JavaScript, HTML5 and CSS3 with
-              modern UI/UX practices.
-            </p>
-
-          </div>
-
-          <div className="feature-card">
-
-            <FaNodeJs className="feature-icon" />
-
-            <h3>Backend Development</h3>
-
-            <p>
-              Developing scalable REST APIs using Node.js,
-              Express.js, MongoDB and MySQL with secure
-              authentication and database design.
-            </p>
-
-          </div>
-
-          <div className="feature-card">
-
-            <FaShieldAlt className="feature-icon" />
-
-            <h3>Cyber Security</h3>
-
-            <p>
-              Performing penetration testing, vulnerability
-              assessment, web security analysis and ethical hacking
-              using Kali Linux and professional security tools.
-            </p>
-
-          </div>
-
+        <div className="footer-bottom">
+          <p>© {new Date().getFullYear()} Chandra Mahesh. All rights reserved.</p>
         </div>
-
-      </section>
-
-      {/* ==========================
-          Statistics
-      ========================== */}
-
-      <section className="stats">
-
-        <div className="stat-box">
-          <h1>20+</h1>
-          <p>Projects Completed</p>
-        </div>
-
-        <div className="stat-box">
-          <h1>15+</h1>
-          <p>Technologies</p>
-        </div>
-
-        <div className="stat-box">
-          <h1>10+</h1>
-          <p>Security Tools</p>
-        </div>
-
-        <div className="stat-box">
-          <h1>100%</h1>
-          <p>Learning Passion</p>
-        </div>
-
-      </section>
-
-      {/* ==========================
-          Why Hire Me
-      ========================== */}
-
-      <section className="about-section">
-
-        <h2>
-          Why Work With Me?
-        </h2>
-
-        <p>
-
-          I combine Full Stack Web Development with
-          Cyber Security expertise to build applications
-          that are not only modern and scalable but also
-          secure against common vulnerabilities.
-
-        </p>
-
-        <div className="about-grid">
-
-          <div className="about-card">
-            ✅ Secure Web Applications
-          </div>
-
-          <div className="about-card">
-            ✅ MERN Stack Development
-          </div>
-
-          <div className="about-card">
-            ✅ Penetration Testing
-          </div>
-
-          <div className="about-card">
-            ✅ API Development
-          </div>
-
-          <div className="about-card">
-            ✅ Vulnerability Assessment
-          </div>
-
-          <div className="about-card">
-            ✅ Continuous Learning
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* ==========================
-          Call To Action
-      ========================== */}
-
-      <section className="cta">
-
-        <h2>
-
-          Let's Build Secure &
-          Modern Applications
-
-        </h2>
-
-        <p>
-
-          Interested in working together?
-          Let's create secure web solutions,
-          innovative projects and impactful
-          digital experiences.
-
-        </p>
-
-        <Link
-          className="cta-btn"
-          to="/projects"
-        >
-
-          Explore My Projects
-
-          <FaArrowRight />
-
-        </Link>
-
-      </section>
-
-      {/* ==========================
-          Footer
-      ========================== */}
-
-      <footer className="footer">
-
-        <h2>
-
-          Chandra Mahesh.
-
-        </h2>
-
-        <p>
-
-          Full Stack Developer |
-          Cyber Security Analyst
-
-        </p>
-
-        <div className="footer-icons">
-
-  <a
-    href="https://github.com/Chandra99275"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="GitHub"
-    title="GitHub"
-  >
-    <FaGithub />
-  </a>
-
-  <a
-    href="https://www.linkedin.com/in/chandramaheshgoud-yarlagadda-25393b368/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="LinkedIn"
-    title="LinkedIn"
-  >
-    <FaLinkedin />
-  </a>
-
-  <a
-    href="https://www.instagram.com/__chandramahesh.__/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Instagram"
-    title="Instagram"
-  >
-    <FaInstagram />
-  </a>
-
-  <a
-    href="mailto:chandramahesh9193@gmail.com"
-    aria-label="Email"
-    title="Email"
-  >
-    <FaEnvelope />
-  </a>
-
-</div>
-
-        <p className="copyright">
-
-          © {new Date().getFullYear()} Mahesh.
-          All Rights Reserved.
-
-        </p>
-
       </footer>
-
     </div>
   );
 }

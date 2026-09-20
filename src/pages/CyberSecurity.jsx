@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-
 import {
   FaShieldAlt,
   FaBug,
@@ -13,8 +12,10 @@ import {
   FaCertificate,
   FaProjectDiagram,
   FaArrowRight,
+  FaEnvelope,
+  FaDownload,
+  FaCode,
 } from "react-icons/fa";
-
 import {
   SiKalilinux,
   SiWireshark,
@@ -24,805 +25,428 @@ import {
 import "./CyberSecurity.css";
 
 /* ===========================
-   Animation
+   Animation Variants
 =========================== */
-
 const fadeUp = {
-  hidden: {
-    opacity: 0,
-    y: 60,
-  },
-
+  hidden: { opacity: 0, y: 40 },
   show: {
     opacity: 1,
     y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
 
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
     transition: {
-      duration: 0.8,
+      staggerChildren: 0.1,
     },
   },
 };
 
 /* ===========================
-   Security Skills
+   Data Configs (Metallic Blue Theme Palette)
 =========================== */
-
 const securitySkills = [
-  {
-    name: "Ethical Hacking",
-    icon: <FaUserSecret />,
-    level: 92,
-    color: "#00ff88",
-  },
-
-  {
-    name: "Penetration Testing",
-    icon: <FaBug />,
-    level: 90,
-    color: "#00e5ff",
-  },
-
-  {
-    name: "Network Security",
-    icon: <FaNetworkWired />,
-    level: 88,
-    color: "#00ff88",
-  },
-
-  {
-    name: "Web Security",
-    icon: <FaShieldAlt />,
-    level: 90,
-    color: "#00e5ff",
-  },
-
-  {
-    name: "Python",
-    icon: <FaPython />,
-    level: 86,
-    color: "#FFD43B",
-  },
-
-  {
-    name: "Linux",
-    icon: <FaLinux />,
-    level: 91,
-    color: "#ffffff",
-  },
+  { name: "Ethical Hacking", icon: <FaUserSecret />, level: 92, color: "#00d2ff" },
+  { name: "Penetration Testing", icon: <FaBug />, level: 90, color: "#3a7bd5" },
+  { name: "Network Security", icon: <FaNetworkWired />, level: 88, color: "#4facfe" },
+  { name: "Web Security", icon: <FaShieldAlt />, level: 90, color: "#00f2fe" },
+  { name: "Python", icon: <FaPython />, level: 86, color: "#61a0ff" },
+  { name: "Linux", icon: <FaLinux />, level: 91, color: "#e2e8f0" },
 ];
-
-/* ===========================
-   Security Tools
-=========================== */
 
 const securityTools = [
-  "Kali Linux",
-  "Nmap",
-  "Burp Suite",
-  "Wireshark",
-  "Metasploit",
-  "OWASP ZAP",
-  "Hydra",
-  "Nikto",
-  "SQLMap",
-  "Linux",
-  "Python",
-  "Git",
+  { name: "Kali Linux", icon: <SiKalilinux /> },
+  { name: "Wireshark", icon: <SiWireshark /> },
+  { name: "Burp Suite", icon: <SiBurpsuite /> },
+  { name: "Nmap", icon: <FaTerminal /> },
+  { name: "Metasploit", icon: <FaBug /> },
+  { name: "OWASP ZAP", icon: <FaShieldAlt /> },
+  { name: "Hydra", icon: <FaLock /> },
+  { name: "Nikto", icon: <FaTerminal /> },
+  { name: "SQLMap", icon: <FaCode /> },
+  { name: "Linux", icon: <FaLinux /> },
+  { name: "Python", icon: <FaPython /> },
+  { name: "Git", icon: <FaTerminal /> },
 ];
-
-/* ===========================
-   Projects
-=========================== */
 
 const projects = [
   {
     title: "Intrusion Detection System",
-
-    description:
-      "Python-based IDS capable of monitoring network traffic and detecting suspicious activities in real time.",
-
-    tech:
-      "Python • Wireshark • Networking",
+    description: "Python-based IDS capable of monitoring network traffic and detecting suspicious activities in real time.",
+    tech: ["Python", "Wireshark", "Networking"],
+    highlights: [
+      "Captured and analyzed packets using Wireshark",
+      "Detected malicious traffic patterns using Python",
+      "Generated real-time defensive security alerts",
+    ],
   },
-
   {
     title: "Secure Login System",
-
-    description:
-      "Authentication system implementing password hashing, session management and secure coding practices.",
-
-    tech:
-      "HTML • CSS • JavaScript • Security",
+    description: "Authentication system implementing password hashing, session management, and secure coding practices.",
+    tech: ["JavaScript", "Node.js", "Security"],
+    highlights: [
+      "Implemented BCrypt password hashing",
+      "Mitigated SQL Injection (SQLi) & Cross-Site Scripting (XSS)",
+      "Enforced secure session management & input validation",
+    ],
   },
 ];
-
-/* ===========================
-   Statistics
-=========================== */
 
 const stats = [
-
-  {
-    number: "2",
-    title: "Internships",
-  },
-
-  {
-    number: "12+",
-    title: "Security Tools",
-  },
-
-  {
-    number: "20+",
-    title: "Labs Completed",
-  },
-
-  {
-    number: "100+",
-    title: "Practice Hours",
-  },
-
+  { number: "2", title: "Internships Completed" },
+  { number: "12+", title: "Security Tools Mastered" },
+  { number: "20+", title: "Hands-on Security Labs" },
+  { number: "100+", title: "Hours of Practical Hacking" },
 ];
-
-/* ===========================
-   Component
-=========================== */
 
 export default function CyberSecurity() {
   return (
-        <div className="cyber-page">
+    <div className="cyber-page">
+      {/* Background Overlay */}
+      <div className="cyber-bg-overlay" />
 
       {/* ================= HERO ================= */}
-
       <section className="cyber-hero">
-
         <motion.div
           className="hero-left"
           variants={fadeUp}
           initial="hidden"
           animate="show"
         >
-
           <span className="hero-tag">
-            Cyber Security Portfolio
+            <span className="dot"></span> Cyber Security Portfolio
           </span>
 
           <h1>
-            Protecting Systems
-            <span> Securing the Digital World</span>
+            Protecting Systems,
+            <span className="highlight"> Securing Digital Assets</span>
           </h1>
 
           <p>
-            Passionate Cyber Security enthusiast with hands-on
-            experience in penetration testing, vulnerability
-            assessment, ethical hacking and secure application
-            development using industry-standard security tools.
+            Passionate Cyber Security specialist with hands-on experience in
+            penetration testing, vulnerability assessment, ethical hacking, and
+            building secure software architectures.
           </p>
 
           <div className="hero-buttons">
-
-            <button className="primary-btn">
-              View Projects
-            </button>
-
+            <a href="#projects" className="primary-btn">
+              View Projects <FaArrowRight />
+            </a>
             <button className="secondary-btn">
-              Download Resume
+              Download Resume <FaDownload />
             </button>
-
           </div>
-
         </motion.div>
 
         <motion.div
           className="hero-right"
-          initial={{
-            opacity: 0,
-            scale: 0.8,
-          }}
-          animate={{
-            opacity: 1,
-            scale: 1,
-          }}
-          transition={{
-            duration: 1,
-          }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-
-          <div className="hero-circle">
-            <FaShieldAlt />
+          <div className="hero-circle-container">
+            <div className="radar-sweep" />
+            <div className="hero-circle">
+              <FaShieldAlt />
+            </div>
           </div>
-
         </motion.div>
-
       </section>
 
       {/* ================= ABOUT ================= */}
-
       <section className="about-section">
-
         <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          className="glass-card about-card"
+        >
+          <h2 className="section-title">About My Cybersecurity Mission</h2>
+          <p>
+            I focus on proactively identifying vulnerabilities, fortifying applications against malicious exploitation, and helping organizations maintain strong security postures.
+          </p>
+          <p>
+            Through my practical internship experiences, I have engaged in end-to-end vulnerability assessments, OSINT reconnaissance, packet inspections, and web application pentesting using industry-standard environments like Kali Linux.
+          </p>
+        </motion.div>
+      </section>
+
+      {/* ================= SKILLS ================= */}
+      <section className="skills-section">
+        <motion.h2
+          className="section-title"
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
         >
+          Core Proficiencies
+        </motion.h2>
 
-          <h2>
-            About My Cyber Security Journey
-          </h2>
-
-          <p>
-            I am passionate about Cyber Security and Ethical
-            Hacking. My focus is on identifying security
-            vulnerabilities, strengthening applications, and
-            protecting systems against cyber threats.
-          </p>
-
-          <p>
-            During my internships, I gained practical experience
-            in network security, vulnerability assessment,
-            reconnaissance, packet analysis, and web application
-            security testing using professional security tools.
-          </p>
-
+        <motion.div
+          className="skills-container"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          {securitySkills.map((skill, index) => (
+            <motion.div key={index} className="glass-card skill-card" variants={fadeUp}>
+              <div className="skill-header">
+                <div className="skill-icon-wrapper" style={{ color: skill.color }}>
+                  {skill.icon}
+                </div>
+                <span className="skill-name">{skill.name}</span>
+                <span className="skill-percentage">{skill.level}%</span>
+              </div>
+              <div className="progress-bar">
+                <motion.div
+                  className="progress-fill"
+                  style={{
+                    background: `linear-gradient(90deg, #1e3c72 0%, ${skill.color} 100%)`
+                  }}
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${skill.level}%` }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, ease: "easeOut" }}
+                />
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
-
       </section>
 
       {/* ================= SECURITY TOOLS ================= */}
-
       <section className="tools-section">
-
         <motion.h2
+          className="section-title"
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
+          viewport={{ once: true }}
         >
-          Security Tools
+          Security Arsenal & Tools
         </motion.h2>
 
-        <div className="tools-grid">
-
+        <motion.div
+          className="tools-grid"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
           {securityTools.map((tool, index) => (
-
-            <motion.div
-              key={index}
-              className="tool-card"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-            >
-
-              <FaTerminal className="tool-icon" />
-
-              <span>{tool}</span>
-
+            <motion.div key={index} className="glass-card tool-card" variants={fadeUp}>
+              <div className="tool-icon">{tool.icon}</div>
+              <span>{tool.name}</span>
             </motion.div>
-
           ))}
-
-        </div>
-
+        </motion.div>
       </section>
 
-      {/* ================= SKILLS ================= */}
-
-      <section className="skills-section">
-
-        <motion.h2
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-        >
-          Cyber Security Skills
-        </motion.h2>
-
-        <div className="skills-container">
-
-          {securitySkills.map((skill, index) => (
-
-            <motion.div
-              key={index}
-              className="skill-card"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-            >
-
-              <div
-                className="skill-icon"
-                style={{
-                  color: skill.color,
-                }}
-              >
-                {skill.icon}
-              </div>
-
-              <div className="skill-info">
-
-                <div className="skill-header">
-
-                  <span>{skill.name}</span>
-
-                  <span>{skill.level}%</span>
-
-                </div>
-
-                <div className="progress">
-
-                  <motion.div
-                    className="progress-fill"
-                    initial={{
-                      width: 0,
-                    }}
-                    whileInView={{
-                      width: `${skill.level}%`,
-                    }}
-                    transition={{
-                      duration: 1.2,
-                    }}
-                  />
-
-                </div>
-
-              </div>
-
-            </motion.div>
-
-          ))}
-
-        </div>
-
-      </section>
-            {/* ================= INTERNSHIPS ================= */}
-
+      {/* ================= INTERNSHIPS ================= */}
       <section className="internships-section">
-
         <motion.h2
+          className="section-title"
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
+          viewport={{ once: true }}
         >
-          Cyber Security Internships
+          Practical Experience
         </motion.h2>
 
         <div className="internship-container">
-
           <motion.div
-            className="internship-card"
+            className="glass-card internship-card"
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
+            viewport={{ once: true }}
           >
-
             <div className="internship-icon">
               <FaShieldAlt />
             </div>
-
             <div className="internship-content">
-
               <h3>Cyber Security Intern</h3>
-
-              <h4>Remote</h4>
-
-              <span>June 2025 – August 2025</span>
-
+              <div className="internship-meta">
+                <span className="badge">Remote</span>
+                <span className="date">June 2025 – August 2025</span>
+              </div>
               <ul>
-
-                <li>
-                  Learned core concepts of network security,
-                  firewalls and threat mitigation strategies.
-                </li>
-
-                <li>
-                  Gained hands-on exposure to enterprise-level
-                  security practices and cybersecurity tools.
-                </li>
-
-                <li>
-                  Assisted in identifying security risks and
-                  implementing security best practices.
-                </li>
-
+                <li>Studied network security concepts, firewall architectures, and threat mitigation strategies.</li>
+                <li>Gained hands-on experience with enterprise security software and defense practices.</li>
+                <li>Analyzed software architecture to spot operational security risks.</li>
               </ul>
-
             </div>
-
           </motion.div>
 
           <motion.div
-            className="internship-card"
+            className="glass-card internship-card"
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
+            viewport={{ once: true }}
           >
-
             <div className="internship-icon">
               <FaBug />
             </div>
-
             <div className="internship-content">
-
-              <h3>AISECT</h3>
-
-              <h4>Cyber Security Intern (Remote)</h4>
-
-              <span>05 Jun 2025 – 06 Aug 2025</span>
-
+              <h3>Cyber Security Intern</h3>
+              <div className="internship-meta">
+                <span className="company">AISECT (Remote)</span>
+                <span className="date">05 Jun 2025 – 06 Aug 2025</span>
+              </div>
               <ul>
-
-                <li>
-                  Performed vulnerability assessments on web
-                  applications and network environments.
-                </li>
-
-                <li>
-                  Conducted reconnaissance using Nmap and
-                  OSINT techniques.
-                </li>
-
-                <li>
-                  Analyzed network traffic using Wireshark
-                  to identify suspicious activities.
-                </li>
-
-                <li>
-                  Practiced web application security testing
-                  using Burp Suite in Kali Linux.
-                </li>
-
+                <li>Executed vulnerability assessments on diverse target web apps and local network nodes.</li>
+                <li>Conducted targeted reconnaissance utilizing Nmap and structured OSINT methodologies.</li>
+                <li>Analyzed active packet captures in Wireshark to locate anomaly vectors.</li>
+                <li>Practiced web application pentesting with Burp Suite on Kali Linux.</li>
               </ul>
-
             </div>
-
           </motion.div>
-
         </div>
-
       </section>
 
       {/* ================= PROJECTS ================= */}
-
-      <section className="projects-section">
-
+      <section className="projects-section" id="projects">
         <motion.h2
+          className="section-title"
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
+          viewport={{ once: true }}
         >
-          Cyber Security Projects
+          Featured Security Projects
         </motion.h2>
 
         <div className="projects-grid">
-
           {projects.map((project, index) => (
-
             <motion.div
               key={index}
-              className="project-card"
+              className="glass-card project-card"
               variants={fadeUp}
               initial="hidden"
               whileInView="show"
-              whileHover={{
-                y: -10,
-                scale: 1.02,
-              }}
+              viewport={{ once: true }}
+              whileHover={{ y: -8 }}
             >
-
-              <div className="project-icon">
-                <FaProjectDiagram />
+              <div className="project-header">
+                <div className="project-icon">
+                  <FaProjectDiagram />
+                </div>
+                <h3>{project.title}</h3>
               </div>
 
-              <h3>{project.title}</h3>
+              <p className="project-desc">{project.description}</p>
 
-              <p>{project.description}</p>
+              <div className="project-tech-tags">
+                {project.tech.map((techItem, i) => (
+                  <span key={i} className="tech-tag">
+                    {techItem}
+                  </span>
+                ))}
+              </div>
 
-              <span className="project-tech">
-                {project.tech}
-              </span>
-
-              {project.title === "Intrusion Detection System" && (
-
-                <ul className="project-list">
-
-                  <li>Captured and analyzed packets using Wireshark.</li>
-
-                  <li>Detected malicious traffic using Python.</li>
-
-                  <li>Generated real-time alerts.</li>
-
-                </ul>
-
-              )}
-
-              {project.title === "Secure Login System" && (
-
-                <ul className="project-list">
-
-                  <li>Password hashing implementation.</li>
-
-                  <li>Prevented SQL Injection attacks.</li>
-
-                  <li>Prevented Cross-Site Scripting (XSS).</li>
-
-                  <li>Implemented session management.</li>
-
-                  <li>Added secure input validation.</li>
-
-                </ul>
-
-              )}
+              <ul className="project-list">
+                {project.highlights.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
 
               <button className="project-btn">
-
-                View Details
-
-                <FaArrowRight />
-
+                View Details <FaArrowRight />
               </button>
-
             </motion.div>
-
           ))}
-
         </div>
-
       </section>
-            {/* ================= CERTIFICATIONS ================= */}
 
+      {/* ================= CERTIFICATIONS & ACHIEVEMENTS ================= */}
       <section className="certifications-section">
-
         <motion.h2
+          className="section-title"
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
+          viewport={{ once: true }}
         >
           Certifications & Training
         </motion.h2>
 
         <div className="certifications-grid">
-
           <motion.div
-            className="certificate-card"
+            className="glass-card certificate-card"
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
+            viewport={{ once: true }}
           >
             <FaCertificate className="certificate-icon" />
-
-            <h3>Cyber Security Internship</h3>
-
+            <h3>Cyber Security Internship Certificate</h3>
             <p>
-              Successfully completed a Cyber Security Internship,
-              gaining practical exposure to vulnerability assessment,
-              penetration testing and network security.
+              Demonstrated proficiency in real-world security practices, vulnerability identification, and mitigation strategies.
             </p>
-
           </motion.div>
 
           <motion.div
-            className="certificate-card"
+            className="glass-card certificate-card"
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
+            viewport={{ once: true }}
           >
             <FaCertificate className="certificate-icon" />
-
-            <h3>Intel Academy Cyber Security Training</h3>
-
+            <h3>Intel Academy Security Training</h3>
             <p>
-              Completed Cyber Security training coordinated with
-              Intel Academy, focusing on enterprise security
-              practices and ethical hacking concepts.
+              Completed training curated in coordination with Intel Academy, covering core ethical hacking principles and infrastructure security.
             </p>
-
           </motion.div>
-
         </div>
-
-      </section>
-
-      {/* ================= ACHIEVEMENTS ================= */}
-
-      <section className="achievements-section">
-
-        <motion.h2
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-        >
-          Achievements
-        </motion.h2>
-
-        <div className="achievement-grid">
-
-          <div className="achievement-card">
-
-            <FaShieldAlt />
-
-            <h3>2</h3>
-
-            <p>Cyber Security Internships</p>
-
-          </div>
-
-          <div className="achievement-card">
-
-            <FaBug />
-
-            <h3>20+</h3>
-
-            <p>Security Labs Completed</p>
-
-          </div>
-
-          <div className="achievement-card">
-
-            <FaLock />
-
-            <h3>10+</h3>
-
-            <p>Security Tools</p>
-
-          </div>
-
-          <div className="achievement-card">
-
-            <FaUserSecret />
-
-            <h3>100+</h3>
-
-            <p>Hours of Practice</p>
-
-          </div>
-
-        </div>
-
       </section>
 
       {/* ================= STATISTICS ================= */}
-
       <section className="statistics-section">
-
-        <motion.h2
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-        >
-          Cyber Security Statistics
-        </motion.h2>
-
         <div className="stats-grid">
-
           {stats.map((item, index) => (
-
             <motion.div
               key={index}
-              className="stat-card"
+              className="glass-card stat-card"
               variants={fadeUp}
               initial="hidden"
               whileInView="show"
+              viewport={{ once: true }}
             >
-
               <h2>{item.number}</h2>
-
               <p>{item.title}</p>
-
             </motion.div>
-
           ))}
-
         </div>
-
-      </section>
-
-      {/* ================= TIMELINE ================= */}
-
-      <section className="timeline-section">
-
-        <motion.h2
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-        >
-          Career Timeline
-        </motion.h2>
-
-        <div className="timeline">
-
-          <div className="timeline-item">
-
-            <span className="year">
-              2025
-            </span>
-
-            <div className="timeline-content">
-
-              <h3>Cyber Security Intern</h3>
-
-              <p>
-                Learned enterprise security concepts, network
-                security fundamentals, firewalls and threat
-                mitigation strategies.
-              </p>
-
-            </div>
-
-          </div>
-
-          <div className="timeline-item">
-
-            <span className="year">
-              2025
-            </span>
-
-            <div className="timeline-content">
-
-              <h3>AISECT Internship</h3>
-
-              <p>
-                Performed vulnerability assessments, OSINT,
-                reconnaissance, packet analysis and web
-                application security testing.
-              </p>
-
-            </div>
-
-          </div>
-
-          <div className="timeline-item">
-
-            <span className="year">
-              2026
-            </span>
-
-            <div className="timeline-content">
-
-              <h3>Intrusion Detection System</h3>
-
-              <p>
-                Developed a Python-based IDS capable of
-                monitoring traffic and generating real-time
-                alerts for suspicious activities.
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-
       </section>
 
       {/* ================= CTA ================= */}
-
       <section className="cta-section">
-
         <motion.div
+          className="glass-card cta-card"
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
+          viewport={{ once: true }}
         >
-
-          <h2>
-            Securing the Digital Future
-          </h2>
-
+          <h2>Securing the Digital Frontier</h2>
           <p>
-            Passionate about Ethical Hacking, Network Security,
-            Penetration Testing and Secure Software Development.
-            I continuously improve my skills to build safer
-            digital systems and resilient applications.
+            Open to full-time cybersecurity opportunities, security research, and penetration testing projects. Let's collaborate to make your digital environment resilient.
           </p>
-
           <button className="cta-btn">
-            Contact Me
+            Get In Touch <FaEnvelope />
           </button>
-
         </motion.div>
-
       </section>
-
     </div>
   );
 }

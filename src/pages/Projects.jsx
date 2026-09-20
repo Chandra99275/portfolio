@@ -3,6 +3,48 @@ import "./Projects.css";
 
 const projects = [
   {
+    title: "Forma AI",
+    date: "Sep 2026",
+    category: "AI / InsurTech",
+    icon: "🤖",
+    description:
+      "AI-powered dynamic insurance form engine designed to simplify claim submission, document recognition, and workflow automation.",
+    features: [
+      "Implemented AI-powered document and image recognition for insurance claims.",
+      "Created dynamic claim forms with intelligent question branching.",
+      "Built claim submission, document management, and PDF generation workflows."
+    ],
+    tech: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Gemini AI"
+    ]
+  },
+
+  {
+    title: "SyncSpace",
+    date: "Jul 2026",
+    category: "Real-Time Collaboration",
+    icon: "🌐",
+    description:
+      "Real-time collaborative workspace combining a whiteboard and code editor for teams to work together in shared rooms.",
+    features: [
+      "Developed real-time collaborative whiteboard functionality.",
+      "Integrated a browser-based code editor using Monaco Editor.",
+      "Implemented room management, authentication, and real-time communication using Socket.IO."
+    ],
+    tech: [
+      "React",
+      "Node.js",
+      "Socket.IO",
+      "MongoDB",
+      "Monaco Editor"
+    ]
+  },
+
+  {
     title: "Intrusion Detection System",
     date: "Apr 2026",
     category: "Cyber Security",
@@ -21,7 +63,6 @@ const projects = [
       "Packet Analysis"
     ]
   },
-
 
   {
     title: "Secure Login System",
@@ -43,10 +84,9 @@ const projects = [
     ]
   },
 
-
   {
     title: "Fake News Detection System",
-    date: "April 2025",
+    date: "Apr 2025",
     category: "Machine Learning",
     icon: "🤖",
     description:
@@ -62,7 +102,6 @@ const projects = [
       "NLP"
     ]
   },
-
 
   {
     title: "Personal Financial Management System",
@@ -83,7 +122,6 @@ const projects = [
     ]
   },
 
-
   {
     title: "Task Manager Application",
     date: "Dec 2025",
@@ -102,7 +140,6 @@ const projects = [
       "File Handling"
     ]
   },
-
 
   {
     title: "NexusHR Website",
@@ -125,137 +162,98 @@ const projects = [
   }
 ];
 
+function Projects() {
+  return (
+    <div className="projects-page">
 
-function Projects(){
+      <section className="projects-hero">
 
-return(
+        <h1>
+          My <span>Projects</span>
+        </h1>
 
-<div className="projects-page">
+        <p>
+          A collection of cybersecurity, artificial intelligence,
+          real-time collaboration, and full-stack development
+          projects demonstrating security engineering and
+          software development skills.
+        </p>
 
+      </section>
 
-<section className="projects-hero">
+      <section className="projects-grid">
 
-<h1>
-My <span>Projects</span>
-</h1>
+        {projects.map((project, index) => (
 
-<p>
-A collection of cybersecurity, artificial intelligence,
-and full-stack development projects demonstrating
-security engineering and software development skills.
-</p>
+          <div
+            className="project-card"
+            key={index}
+          >
 
-</section>
+            <div className="project-icon">
+              {project.icon}
+            </div>
 
+            <div className="project-header">
 
+              <h2>
+                {project.title}
+              </h2>
 
+              <span>
+                {project.date}
+              </span>
 
-<section className="projects-grid">
+            </div>
 
+            <p className="category">
+              {project.category}
+            </p>
 
-{
-projects.map((project,index)=>(
+            <p className="project-description">
+              {project.description}
+            </p>
 
+            <h3>
+              Key Features
+            </h3>
 
-<div 
-className="project-card"
-key={index}
->
+            <ul>
 
+              {project.features.map((item, i) => (
 
-<div className="project-icon">
-{project.icon}
-</div>
+                <li key={i}>
+                  {item}
+                </li>
 
+              ))}
 
+            </ul>
 
-<div className="project-header">
+            <div className="tech-stack">
 
-<h2>
-{project.title}
-</h2>
+              {project.tech.map((item, i) => (
 
-<span>
-{project.date}
-</span>
+                <span key={i}>
+                  {item}
+                </span>
 
-</div>
+              ))}
 
+            </div>
 
+            <button className="view-btn">
+              View Project
+            </button>
 
-<p className="category">
-{project.category}
-</p>
+          </div>
 
+        ))}
 
+      </section>
 
-<p className="project-description">
-{project.description}
-</p>
-
-
-
-
-<h3>
-Key Features
-</h3>
-
-
-<ul>
-
-{
-project.features.map((item,i)=>(
-
-<li key={i}>
-{item}
-</li>
-
-))
+    </div>
+  );
 }
-
-</ul>
-
-
-
-<div className="tech-stack">
-
-{
-project.tech.map((item,i)=>(
-
-<span key={i}>
-{item}
-</span>
-
-))
-}
-
-</div>
-
-
-
-<button className="view-btn">
-View Project
-</button>
-
-
-
-</div>
-
-
-))
-
-}
-
-
-
-</section>
-
-
-</div>
-
-)
-
-}
-
 
 export default Projects;
